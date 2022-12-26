@@ -51,14 +51,12 @@ class TocMachine(GraphMachine):
 
         reply_token = event.reply_token
         send_text_message(reply_token, "請輸入和弦組成音")
-        self.go_back()
 
     def on_enter_diachord(self, event):
         print("I'm entering state2")
 
         reply_token = event.reply_token
         send_text_message(reply_token, "請輸入調性代號")
-        self.go_back()
 
     def on_enter_rechord(self, event):
         print("I'm entering state1")
