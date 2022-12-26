@@ -50,7 +50,7 @@ machine = TocMachine(
             "trigger": "advance",
             "source": "diachord",
             "dest": "rediachord",
-            "conditions": "is_going_to_rerdiachord",
+            "conditions": "is_going_to_rediachord",
         },
         {"trigger": "go_back", "source": ["rechord", "rechordtone", "rediachord"], "dest": "user"},
     ],
