@@ -115,17 +115,17 @@ class TocMachine(GraphMachine):
             notenum.append(notename[elem])
         if len(notename) == 4 :
             if (notenum[1]-notenum[0]+12)%12 == 3 : 
-                replychord = notename[0] + "m7"
+                replychord = chordnum[0] + "m7"
             else :
                 if (notenum[3]-notenum[0]+12)%12 == 10 :
-                    replychord = notename[0] + "7"
+                    replychord = chordnum[0] + "7"
                 else : 
-                    replychord = notename[0] + "M7"
+                    replychord = chordnum[0] + "M7"
         else : 
             if (notenum[1]-notenum[0]+12)%12 == 3 : 
-                replychord = notename[0] + "m"
+                replychord = chordnum[0] + "m"
             else : 
-                replychord = notename[0]
+                replychord = chordnum[0]
 
         reply_token = event.reply_token
         send_text_message(reply_token, replychord)
