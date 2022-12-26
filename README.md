@@ -1,5 +1,4 @@
 # Chord_Line_Bot
-[toc]
 ## Introduction
 
 讓使用者快速方便查詢常用和弦的LineBot
