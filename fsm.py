@@ -4,40 +4,40 @@ from utils import send_text_message
 chord = ""
 note = ""
 dchord = ""
-notename = {"c":0, "c#":1, "d":2, "d#":3, "e":4, "f":5, "f#":6, "g":7, "g#":8, "a":9, "a#":10, "b":11}
-chordnum = ["c", "c#", "d", "d#", "e", "f", "f#", "g", "g#", "a", "a#", "b"]
+notename = {"C":0, "C#":1, "D":2, "D#":3, "E":4, "F":5, "F#":6, "G":7, "G#":8, "A":9, "A#":10, "B":11}
+chordnum = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"]
 class TocMachine(GraphMachine):
     def __init__(self, **machine_configs):
         self.machine = GraphMachine(model=self, **machine_configs)
 
     def is_going_to_chord(self, event):
         text = event.message.text
-        return text.lower() == "和弦"
+        return text == "和弦"
 
     def is_going_to_chordtone(self, event):
         text = event.message.text
-        return text.lower() == "組成音"
+        return text == "組成音"
 
     def is_going_to_diachord(self, event):
         text = event.message.text
-        return text.lower() == "音階"
+        return text == "音階"
 
     def is_going_to_rechord(self, event):
         global chord 
         text = event.message.text
-        chord = text.lower()
+        chord = text
         return True
 
     def is_going_to_rechordtone(self, event):
         global note
         text = event.message.text
-        note = text.lower()
+        note = text
         return True
 
     def is_going_to_rediachord(self, event):
         global dchord
         text = event.message.text
-        dchord = text.lower()
+        dchord = text
         return True
 
     def on_enter_chord(self, event):
@@ -60,7 +60,7 @@ class TocMachine(GraphMachine):
 
     def on_enter_rechord(self, event):
         print("I'm entering state1")
-        text = event.message.text.lower()
+        text = event.message.text
         if '#' in text:
             name =text[0:1]
         else :
@@ -108,7 +108,7 @@ class TocMachine(GraphMachine):
     def on_enter_rechordtone(self, event):
         global notename
         print("I'm entering state1")
-        text = event.message.text.lower()
+        text = event.message.text
         notelist = list(text.split(" "))
         notenum = []
         for elem in notelist :
@@ -133,7 +133,7 @@ class TocMachine(GraphMachine):
 
     def on_enter_rediachord(self, event):
         print("I'm entering state1")
-        text = event.message.text.lower()
+        text = event.message.text
         if '#' in text:
             name =text[0:1]
         else :
