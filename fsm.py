@@ -113,7 +113,7 @@ class TocMachine(GraphMachine):
         notenum = []
         for elem in notelist :
             notenum.append(notename[elem])
-        if len(notename) == 4 :
+        if len(notenum) == 4 :
             if (notenum[1]-notenum[0]+12)%12 == 3 : 
                 replychord = chordnum[0] + "m7"
             else :
