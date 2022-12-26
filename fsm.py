@@ -103,6 +103,7 @@ class TocMachine(GraphMachine):
 
         reply_token = event.reply_token
         send_text_message(reply_token, sendback)
+        self.go_back()
 
     def on_enter_rechordtone(self, event):
         global notename
@@ -128,6 +129,7 @@ class TocMachine(GraphMachine):
 
         reply_token = event.reply_token
         send_text_message(reply_token, replychord)
+        self.go_back()
 
     def on_enter_rediachord(self, event):
         print("I'm entering state1")
@@ -158,3 +160,4 @@ class TocMachine(GraphMachine):
                 
         reply_token = event.reply_token
         send_text_message(reply_token, sendback)
+        self.go_back()
